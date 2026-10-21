@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Page not found — SCSC Design</title>
+    <script>
+      // A path inside one of the builds is a route of that build's app (GitHub Pages can't
+      // rewrite it): send it to the build's root, which restores it. A missing file stays a 404.
+      (function () {
+        var base = "/scsc-design-docs/";
+        var builds = ["latest","next","v0.6.0"];
+        var l = window.location;
+        if (l.pathname.indexOf(base) !== 0) return;
+        var rest = l.pathname.slice(base.length);
+        var cut = rest.indexOf('/');
+        if (cut < 1) return;
+        var build = rest.slice(0, cut);
+        var route = rest.slice(cut);
+        var file = route.slice(route.lastIndexOf('/') + 1);
+        if (builds.indexOf(build) < 0 || route === '/' || file.lastIndexOf('.') > 0) return;
+        l.replace(base + build + '/?route=' + encodeURIComponent(route + l.search) + l.hash);
+      })();
+    </script>
+    <style>
+      body {
+        font: 1rem/1.5 system-ui, sans-serif;
+        margin: 4rem auto;
+        max-width: 36rem;
+        padding: 0 1rem;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <h1>Page not found</h1>
+      <p>Nothing is published at this address. <a href="/scsc-design-docs/">Go to the SCSC Design docs</a>.</p>
+    </main>
+  </body>
+</html>

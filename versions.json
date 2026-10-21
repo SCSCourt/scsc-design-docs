@@ -1,0 +1,16 @@
+{
+  "latest": "0.6.0",
+  "versions": [
+    {
+      "version": "0.6.0",
+      "path": "/v0.6.0/",
+      "released": "2026-10-19"
+    }
+  ],
+  "next": {
+    "path": "/next/",
+    "built": "2026-10-21",
+    "basedOn": "0.6.0",
+    "pending": 0
+  }
+}
